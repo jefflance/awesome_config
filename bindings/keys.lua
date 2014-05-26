@@ -7,10 +7,10 @@
 		11/05/2014
 --]]
 
-local awful		= require("awful")
-local drop		= require("scratch.drop")
+local awful	= require("awful")
+local drop	= require("scratch.drop")
 local keydoc	= require("keydoc")
-local lain		= require("lain")
+local lain	= require("lain")
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
