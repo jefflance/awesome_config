@@ -70,9 +70,10 @@ require("plugins.keydoc")
 
 
 ------------------ AUTOSTART APPLICATIONS ------------------
-run_once("nitrogen \\--restore")
-run_once("urxvtd -q -o") -- -f")
+run_once("nitrogen \-\-restore")
+--run_once("urxvtd -q -o") -- -f")
 run_once("unclutter")
+run_once("nm-applet")
 
 
 ------------------ GLOBAL ------------------

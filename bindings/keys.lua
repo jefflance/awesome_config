@@ -88,6 +88,8 @@ globalkeys = awful.util.table.join(
 		"Espace disque"),
     awful.key({ altkey,           }, "m",      						function () yawn.show(7) end,
 		"Météo"),
+    -- awful.key({ altkey,			  }, "b",							function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end,
+    -- 	"Widgets (in)visible"),
 	-- }}}
 
 		

@@ -14,11 +14,11 @@ layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+--    awful.layout.suit.tile.left,
+--    awful.layout.suit.tile.bottom,
+--    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+--    awful.layout.suit.fair.horizontal,
 --     awful.layout.suit.spiral,
 --     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
@@ -35,8 +35,8 @@ tags = {
 --     name = { "www", "mail", "edit", 4, 5, 6, 7, 8, 9 },
 --     name = { "1:www", "2:mail", 3, 4, 5, 6, 7, 8, "9:term" },
     name = { "1:", "2:", "3:", "4:", "5:", "6:", "7:www", "8:mail", "9:term" },    
-    layout = { layouts[8], layouts[8], layouts[1], layouts[1], layouts[1],
-               layouts[1], layouts[1], layouts[1], layouts[9]
+    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1],
+               layouts[1], layouts[5], layouts[5], layouts[5]
              }
 }
 
