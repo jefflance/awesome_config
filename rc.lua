@@ -25,8 +25,10 @@ local lain		= require("lain")
 -- localisation
 os.setlocale(os.getenv("LANG"))
 
-terminal	= "urxvtc" or "xterm"
-quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
+--terminal	= "urxvtc" or "xterm"
+terminal	= "xterm"
+--quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
+quaketerm	= "xterm -name quake"
 editor 		= os.getenv("EDITOR") or "nano"
 editor_cmd 	= terminal .. " -e " .. editor
 user		= os.getenv("USER")
@@ -70,7 +72,7 @@ require("plugins.keydoc")
 
 
 ------------------ AUTOSTART APPLICATIONS ------------------
-run_once("nitrogen \-\-restore")
+run_once("nitrogen \\--restore")
 --run_once("urxvtd -q -o") -- -f")
 run_once("unclutter")
 run_once("nm-applet")
