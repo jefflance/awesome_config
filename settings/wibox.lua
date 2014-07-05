@@ -36,7 +36,7 @@ fsicon = wibox.widget.imagebox(beautiful.widget_fs)
 fswidget = lain.widgets.fs({
     partition = "/mnt/data",
     settings  = function()
-        widget:set_markup(markup("#80d9d8", fs_now.used .. "% "))
+        widget:set_markup(markup("#80d9d8", "Data " .. fs_now.used .. "% "))
     end
 })
 
@@ -128,7 +128,7 @@ mpdicon = wibox.widget.imagebox()
 mpdwidget = lain.widgets.mpd({
     settings = function()
         mpd_notification_preset = {
-	    music_dir = "/mnt/smbnet/WORKGROUP/DUNE/Dune_afdcdfef_1be4_419f_974d_36e4454aa969/musique/",
+	    music_dir = "~/Music/dune",
 	    cover_size = 100,
             text = string.format("%s [%s] - %s\n%s", mpd_now.artist,
                    mpd_now.album, mpd_now.date, mpd_now.title)
@@ -231,35 +231,53 @@ for s = 1, screen.count() do
         
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
+    -- tags
     left_layout:add(mytaglist[s])
+
+    -- run command
     left_layout:add(mypromptbox[s])
+
+    -- mpd infos
     left_layout:add(mpdicon)
     left_layout:add(mpdwidget)
 
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    --if s == 1 then right_layout:add(wibox.widget.systray()) end
+    -- mail infos
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
-    right_layout:add(netdownicon)
-    right_layout:add(netdowninfo)
-    right_layout:add(netupicon)
-    right_layout:add(netupinfo)
+
+    -- net infos
+    --right_layout:add(netdownicon)
+    --right_layout:add(netdowninfo)
+    --right_layout:add(netupicon)
+    --right_layout:add(netupinfo)
+
+    -- volume infos
     right_layout:add(volicon)
     --right_layout:add(volumewidget)
     right_layout:add(volumecfg_widget)
+
+    -- system infos
     right_layout:add(memicon)
     right_layout:add(memwidget)
-    right_layout:add(cpuicon)
-    right_layout:add(cpuwidget)
+    --right_layout:add(cpuicon)
+    --right_layout:add(cpuwidget)
     right_layout:add(fsicon)
     right_layout:add(fswidget)
+
+    -- weather infos
     right_layout:add(weathericon)
     right_layout:add(yawn.widget)
     --right_layout:add(tempicon)
     --right_layout:add(tempwidget)
+
+    -- battery infos
     right_layout:add(baticon)
     right_layout:add(batwidget)
+
+    -- time infos
     right_layout:add(clockicon)
     right_layout:add(mytextclock)
 
@@ -271,16 +289,19 @@ for s = 1, screen.count() do
     
     mywibox[s]:set_widget(layout)
 
+
     -- Create the bottom wibox
     mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 20 })
     --mybottomwibox[s].visible = false
             
     -- Widgets that are aligned to the bottom left
     bottom_left_layout = wibox.layout.fixed.horizontal()
-                        
+    bottom_left_layout:add(mylayoutbox[s])
+
     -- Widgets that are aligned to the bottom right
     bottom_right_layout = wibox.layout.fixed.horizontal()
-    bottom_right_layout:add(mylayoutbox[s])
+    if s == 1 then bottom_right_layout:add(wibox.widget.systray()) end
+    --bottom_right_layout:add(mylayoutbox[s])
                                             
     -- Now bring it all together (with the tasklist in the middle)
     bottom_layout = wibox.layout.align.horizontal()
