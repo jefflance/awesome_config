@@ -25,18 +25,22 @@ lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Weather
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
-yawn = lain.widgets.yawn(615702, {
+myweather = lain.widgets.weather({
+    city_id = 2995121,
+    lang = fr,
     settings = function()
-        widget:set_markup(markup("#eca4c4", forecast:lower() .. " @ " .. units .. "°C "))
+        descr = weather_now["weather"][1]["description"]:lower()
+        units = math.floor(weather_now["main"]["temp"])
+        widget:set_markup(markup("#eca4c4", descr .. " @ " .. units .. "°C "))
     end
 })
 
 -- / fs
 fsicon = wibox.widget.imagebox(beautiful.widget_fs)
 fswidget = lain.widgets.fs({
-    partition = "/mnt/data",
+    partition = "/home",
     settings  = function()
-        widget:set_markup(markup("#80d9d8", "Data " .. fs_now.used .. "% "))
+        widget:set_markup(markup("#80d9d8", "Home " .. fs_now.used .. "% "))
     end
 })
 
@@ -79,17 +83,17 @@ tempwidget = lain.widgets.temp({
 })
 
 -- Battery
-baticon = wibox.widget.imagebox(beautiful.widget_batt)
-batwidget = lain.widgets.bat({
-    settings = function()
-        if bat_now.perc == "N/A" then
-            bat_now.perc = "AC "
-        else
-            bat_now.perc = bat_now.perc .. "% "
-        end
-        widget:set_text(bat_now.perc)
-    end
-})
+-- baticon = wibox.widget.imagebox(beautiful.widget_batt)
+-- batwidget = lain.widgets.bat({
+--     settings = function()
+--         if bat_now.perc == "N/A" then
+--             bat_now.perc = "AC "
+--         else
+--             bat_now.perc = bat_now.perc .. "% "
+--         end
+--         widget:set_text(bat_now.perc)
+--     end
+-- })
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
@@ -102,7 +106,7 @@ volumewidget = lain.widgets.alsa({
     end
 })
 
--- Net 
+-- Net
 netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
 --netdownicon.align = "middle"
 netdowninfo = wibox.widget.textbox()
@@ -127,8 +131,8 @@ memwidget = lain.widgets.mem({
 mpdicon = wibox.widget.imagebox()
 mpdwidget = lain.widgets.mpd({
     settings = function()
-        mpd_notification_preset = {
-	    music_dir = "~/Music/dune",
+      mpd_notification_preset = {
+	    music_dir = "/mnt/mores/musique",
 	    cover_size = 100,
             text = string.format("%s [%s] - %s\n%s", mpd_now.artist,
                    mpd_now.album, mpd_now.date, mpd_now.title)
@@ -206,11 +210,11 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
-    
+
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
 
-    
+
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -226,9 +230,9 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 }) 
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 })
     --border_width = 0, height =  20 })
-        
+
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     -- tags
@@ -269,13 +273,13 @@ for s = 1, screen.count() do
 
     -- weather infos
     right_layout:add(weathericon)
-    right_layout:add(yawn.widget)
+    right_layout:add(myweather)
     --right_layout:add(tempicon)
     --right_layout:add(tempwidget)
 
     -- battery infos
-    right_layout:add(baticon)
-    right_layout:add(batwidget)
+    -- right_layout:add(baticon)
+    -- right_layout:add(batwidget)
 
     -- time infos
     right_layout:add(clockicon)
@@ -286,14 +290,14 @@ for s = 1, screen.count() do
     layout:set_left(left_layout)
     --layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-    
+
     mywibox[s]:set_widget(layout)
 
 
     -- Create the bottom wibox
     mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 20 })
     --mybottomwibox[s].visible = false
-            
+
     -- Widgets that are aligned to the bottom left
     bottom_left_layout = wibox.layout.fixed.horizontal()
     bottom_left_layout:add(mylayoutbox[s])
@@ -302,7 +306,7 @@ for s = 1, screen.count() do
     bottom_right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then bottom_right_layout:add(wibox.widget.systray()) end
     --bottom_right_layout:add(mylayoutbox[s])
-                                            
+
     -- Now bring it all together (with the tasklist in the middle)
     bottom_layout = wibox.layout.align.horizontal()
     bottom_layout:set_left(bottom_left_layout)
@@ -311,4 +315,3 @@ for s = 1, screen.count() do
     mybottomwibox[s]:set_widget(bottom_layout)
 end
 -- }}}
-
