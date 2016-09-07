@@ -19,18 +19,17 @@ require('plugins.freedesktop.menu')
 menu_items = freedesktop.menu.new()
 myawesomemenu = {
 	{ "manuel", terminal .. " -e man awesome", freedesktop.utils.lookup_icon({ icon = 'help' }) },
-    { "configurer", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua", freedesktop.utils.lookup_icon({ 
-    icon = 'package_settings' }) },
-    { "recharcher", awesome.restart, freedesktop.utils.lookup_icon({ icon = 'gtk-refresh' }) },
-    { "déconnexion", "pkill -u " .. user, freedesktop.utils.lookup_icon({ icon = 'gtk-quit' }) }
+  { "configurer", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua", freedesktop.utils.lookup_icon({
+  	icon = 'package_settings' }) },
+  { "recharcher", awesome.restart, freedesktop.utils.lookup_icon({ icon = 'gtk-refresh' }) },
+  { "déconnexion", "pkill -u " .. user, freedesktop.utils.lookup_icon({ icon = 'gtk-quit' }) }
 }
 
 table.insert(menu_items, { "-----------", nil, nil })
 table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 table.insert(menu_items, { "terminal", terminal, freedesktop.utils.lookup_icon({icon = 'terminal'}) })
 
-mymainmenu = awful.menu.new({ items = menu_items, width = 400 })
+mymainmenu = awful.menu.new({ items = { menu_items }, width = 500 })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
-

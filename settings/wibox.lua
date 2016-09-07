@@ -150,12 +150,12 @@ mpdwidget = lain.widgets.mpd({
             title  = ""
             mpdicon:set_image(nil)
         end
-        widget:set_markup(markup("#e54c62", artist) .. markup("#b2b2b2", title))
+        widget:set_markup(markup("#e54c62", artist) .. markup("#e54c62", title))
     end
 })
 
 -- Spacer
-spacer = wibox.widget.textbox(" ")
+spacer1 = wibox.widget.textbox("      ")
 
 -- }}}
 
@@ -214,7 +214,6 @@ for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
 
-
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -235,6 +234,9 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
+    -- mainmenu
+    -- left_layout:add(mylauncher)
+    
     -- tags
     left_layout:add(mytaglist[s])
 
@@ -242,6 +244,7 @@ for s = 1, screen.count() do
     left_layout:add(mypromptbox[s])
 
     -- mpd infos
+    left_layout:add(spacer1)
     left_layout:add(mpdicon)
     left_layout:add(mpdwidget)
 
@@ -264,6 +267,7 @@ for s = 1, screen.count() do
     right_layout:add(volumecfg_widget)
 
     -- system infos
+    right_layout:add(spacer1)
     right_layout:add(memicon)
     right_layout:add(memwidget)
     --right_layout:add(cpuicon)
@@ -272,6 +276,7 @@ for s = 1, screen.count() do
     right_layout:add(fswidget)
 
     -- weather infos
+    left_layout:add(spacer1)
     right_layout:add(weathericon)
     right_layout:add(myweather)
     --right_layout:add(tempicon)

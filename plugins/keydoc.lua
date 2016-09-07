@@ -61,6 +61,7 @@ local function key2str(key)
       [modkey] = "⊞",
       Shift    = "⇧",
       Control  = "Ctrl",
+      Mod1     = "alt",
    }
    for _, mod in pairs(key.modifiers) do
       mod = translate[mod] or mod
@@ -99,7 +100,7 @@ local function markup(keys)
 	 local help, group = doc[key].help, doc[key].group
 	 local skey = key2str(key)
 	 result[group] = (result[group] or "") ..
-	    '<span font="DejaVu Sans Mono 10" color="' .. beautiful.fg_white .. '"> ' ..
+	    '<span font="Roboto Mono 10" color="' .. beautiful.fg_white .. '"> ' ..
 	    string.format("%" .. (longest - unilen(skey)) .. "s  ", "") .. skey ..
 	    '</span>  <span color="' .. beautiful.fg_red .. '">' ..
 	    help .. '</span>\n'

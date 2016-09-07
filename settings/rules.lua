@@ -19,17 +19,18 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
+                     size_hints_honor = false,
                      keys = clientkeys,
                      buttons = clientbuttons,
-					 maximized_vertical   = false,
-					 maximized_horizontal = false } },
+                     maximized_vertical   = false,
+                     maximized_horizontal = false } },
+    -- Set floating apps
     { rule = { class = "vlc" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-
     -- Set Firefox to always map on tags number 1 of screen 1.
     { rule = { class = "Firefox" },
       properties = { tag = tags[1][7] } },
@@ -37,11 +38,16 @@ awful.rules.rules = {
     { rule = { class = "Thunderbird" },
       properties = { tag = tags[1][8] } },
     -- Set URxvt/XTerm to always map on tags number 9 of screen 1.
-    { rule_any = { class = { "URxvt", "XTerm" } },
+    { rule_any = { class = { "lxterminal", "Lxterminal" } },
       properties = { tag = tags[1][9] } },
     -- Set KeePass2 to always be floating.
-    { rule_any = { class = { "keepass2", "KeePass2" } },
-      properties = { floating = true } }
+    { rule_any = { class = { "keepassx", "KeePassX" } },
+      properties = { floating = true } },
+    -- Set Conky
+    { rule = { class = "Conky" },
+      properties = {  floating = true,
+                      sticky = true,
+                      ontop = false,
+                      focusable = false } },
 }
 -- }}}
-
