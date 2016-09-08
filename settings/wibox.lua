@@ -97,15 +97,15 @@ tempwidget = lain.widgets.temp({
 -- })
 
 -- ALSA volume
-volicon = wibox.widget.imagebox(beautiful.widget_vol)
-volumewidget = lain.widgets.alsa({
-    settings = function()
-        if volume_now.status == "off" then
-            volume_now.level = volume_now.level .. "M"
-        end
-        widget:set_markup(markup("#7493d2", volume_now.level .. "% "))
-    end
-})
+-- volicon = wibox.widget.imagebox(beautiful.widget_vol)
+-- volumewidget = lain.widgets.alsa({
+--     settings = function()
+--         if volume_now.status == "off" then
+--             volume_now.level = volume_now.level .. "M"
+--         end
+--         widget:set_markup(markup("#7493d2", volume_now.level .. "% "))
+--     end
+-- })
 
 -- Net
 netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
@@ -182,6 +182,16 @@ pomodoro = awmodoro.new({
   end
 })
 
+-- -- Taskwarrior
+-- taskswidget = widget({type = "textbox"})
+-- taskswidget.text = get_duetask();
+-- taskswidget = {}
+-- taskswidget.buttons = awful.util.table.join(
+--                       awful.button({ }, 1, function() taskswidget.text = next_duetask() end),
+--                       awful.button({ }, 3, function() taskswidget.text = prev_duetask() end)
+--                       )
+-- add_tasklist()
+
 -- Spacer
 spacer1 = wibox.widget.textbox("      ")
 
@@ -257,8 +267,8 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the upper wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 20 })
-    --border_width = 0, height =  20 })
+    mywibox[s] = awful.wibox({ position = "top", screen = s, height = 26,
+    border_width = 0, height =  26 })
 
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -291,7 +301,6 @@ for s = 1, screen.count() do
 
     -- volume infos
     right_layout:add(volicon)
-    --right_layout:add(volumewidget)
     right_layout:add(volumecfg_widget)
 
     -- system infos
@@ -330,7 +339,7 @@ for s = 1, screen.count() do
 
 
     -- Create the bottom wibox
-    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 20 })
+    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 24 })
     --mybottomwibox[s].visible = false
 
     -- Widgets that are aligned to the bottom left
