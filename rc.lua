@@ -78,9 +78,9 @@ require("plugins.keydoc")
 ------------------ AUTOSTART APPLICATIONS ------------------
 run_once("nitrogen \\--restore")
 run_once("compton -b &")
-awful.util.spawn("nm-applet")
-awful.util.spawn("clipit")
-awful.util.spawn("seafile-applet")
+run_once("nm-applet")
+run_once("clipit")
+run_once("seafile-applet")
 
 
 ------------------ GLOBAL ------------------
