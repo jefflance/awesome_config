@@ -11,10 +11,11 @@ local awful = require("awful")
 local wibox = require("wibox")
 local lain = require("lain")
 local beautiful = require("beautiful")
+local awmodoro = require("plugins.awmodoro")
 
 
 -- {{{ Wibox
-markup      = lain.util.markup
+markup = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
@@ -154,6 +155,33 @@ mpdwidget = lain.widgets.mpd({
     end
 })
 
+-- Pomodoro
+pomowibox = awful.wibox({ position = "top", screen = 1, height=4})
+pomowibox.visible = false
+pomodoro = awmodoro.new({
+  minutes 			= 25,
+  do_notify 			= true,
+  active_bg_color 	= '#313131',
+  paused_bg_color 	= '#7746D7',
+  fg_color			= {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"},{0.5, "#88A175"},{1, "#FF5656"}}},
+  width 				= pomowibox.width,
+  height 				= pomowibox.height,
+
+  begin_callback = function()
+    for s = 1, screen.count() do
+      mywibox[s].visible = true
+    end
+    pomowibox.visible = true
+  end,
+
+  finish_callback = function()
+    for s = 1, screen.count() do
+      mywibox[s].visible = true
+    end
+    pomowibox.visible = false
+  end
+})
+
 -- Spacer
 spacer1 = wibox.widget.textbox("      ")
 
@@ -236,7 +264,7 @@ for s = 1, screen.count() do
     local left_layout = wibox.layout.fixed.horizontal()
     -- mainmenu
     -- left_layout:add(mylauncher)
-    
+
     -- tags
     left_layout:add(mytaglist[s])
 
@@ -295,8 +323,10 @@ for s = 1, screen.count() do
     layout:set_left(left_layout)
     --layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-
     mywibox[s]:set_widget(layout)
+
+    -- Put Pomodoro timer
+    pomowibox:set_widget(pomodoro)
 
 
     -- Create the bottom wibox
