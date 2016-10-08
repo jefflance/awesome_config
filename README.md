@@ -1,6 +1,6 @@
-====================
-My Awesome WM Config
-====================
+============================
+Jeff's AwesomeWM configfiles
+============================
 
 Based on Awesome WM Copycats.
 This configuration only differs on its modular parts.
