@@ -33,16 +33,16 @@ editor 					= os.getenv("EDITOR") or "nano"
 editor_cmd 			= terminal .. " -e " .. editor
 user						= os.getenv("USER")
 
-raise_volume_cmd	= "amixer -D pulse set Master 3%+ unmute"
-lower_volume_cmd	= "amixer -D pulse set Master 3%- unmute"
-mute_volume_cmd		= "amixer -D pulse set Master toggle"
+--raise_volume_cmd	= "amixer -D pulse -- sset Master 3%+ unmute"
+--lower_volume_cmd	= "amixer -D pulse -- sset Master 3%- unmute"
+--mute_volume_cmd		= "amixer -D pulse -- sset Master toggle"
 
 browser				= "firefox"
 browser2			= "chromium"
 gui_editor		= "leafpad"
 graphics			= "gimp"
 mail					= "thunderbird"
-filemanager 	= "pantheon-files"
+filemanager 	= "files"
 
 -- KEYBINDED KEYS
 -- Default modkey.
@@ -55,7 +55,7 @@ altkey			= "Mod1"
 
 
 -- THEME (themes define colours, icons, font and wallpapers)
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/multicolor/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/gune/theme.lua")
 
 
 ------------------ FIRST PLUGINS ------------------
@@ -63,7 +63,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/multicolor/theme.lu
 require("settings.wallpaper")
 
 -- VOLUME ICON
-require("plugins.volume_pavel_mod")
+require("plugins.volume")
 
 -- RUN ONCE (auto start apps)
 require("plugins.run_once")
@@ -76,6 +76,7 @@ require("plugins.keydoc")
 
 
 ------------------ AUTOSTART APPLICATIONS ------------------
+run_once("thunar --daemon")
 run_once("nitrogen \\--restore")
 run_once("compton -b &")
 run_once("nm-applet")

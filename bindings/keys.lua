@@ -99,7 +99,7 @@ globalkeys = awful.util.table.join(
 																		awful.util.getdir("cache") .. "/history_eval")
 																	end,
 				"Éxécuter du code Lua"),
-		awful.key({ modkey,           }, "m",								function () desktopmenu:show({ keygrabber = true }) end,
+		awful.key({ modkey,           }, "m",								function () mymainmenu:show({ keygrabber = true }) end,
 				"Afficher menu principal"),
 	-- }}}
 

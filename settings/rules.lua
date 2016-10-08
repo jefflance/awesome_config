@@ -39,7 +39,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][8] } },
     -- Set URxvt/XTerm to always map on tags number 9 of screen 1.
     { rule_any = { class = { "lxterminal", "Lxterminal" } },
-      properties = { tag = tags[1][9] } },
+      properties = { tag = tags[1][9] },
+      callback = awful.titlebar.hide  },
     -- Set KeePass2 to always be floating.
     { rule_any = { class = { "keepassx", "KeePassX" } },
       properties = { floating = true } },

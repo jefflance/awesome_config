@@ -1,5 +1,5 @@
 --[[
-	plugins/volume_pavel_mod.lua
+	plugins/volume.lua
 
 		Volume control widget
 		Based on Pavel's mod widget on the wiki
@@ -11,6 +11,9 @@
 
 local wibox = require("wibox")
 local awful = require("awful")
+local beautiful = require("beautiful")
+
+volicon = wibox.widget.imagebox(beautiful.widget_vol)
 
 volumecfg_widget = wibox.widget.textbox()
 volumecfg_widget:set_align("right")
@@ -29,7 +32,7 @@ volumecfg.mixercommand = function (command)
        status = string.match(status, "%[(o[^%]]*)%]")
        if string.find(status, "on", 1, true) then
                volume = volume .. "♪"
-       else   
+       else
                volume = volume .. "x"
        end
        volumecfg_widget:set_text(volume)
@@ -38,13 +41,13 @@ volumecfg.update = function ()
        volumecfg.mixercommand(" sget " .. volumecfg.channel)
 end
 volumecfg.up = function ()
-       volumecfg.mixercommand(" sset " .. volumecfg.channel .. " 5%+")
+       volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " 1%+")
 end
 volumecfg.down = function ()
-       volumecfg.mixercommand(" sset " .. volumecfg.channel .. " 5%-")
+       volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " 1%-")
 end
 volumecfg.toggle = function ()
-       volumecfg.mixercommand(" sset " .. volumecfg.channel .. " toggle")
+       volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " toggle")
 end
 
 volumecfg_widget:buttons(awful.util.table.join(

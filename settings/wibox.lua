@@ -273,7 +273,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
     -- mainmenu
-    -- left_layout:add(mylauncher)
+    left_layout:add(mylauncher)
 
     -- tags
     left_layout:add(mytaglist[s])
