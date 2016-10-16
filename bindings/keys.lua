@@ -14,202 +14,196 @@ local lain	= require("lain")
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-	-- {{{ Tags
-	keydoc.group("Tags"),
+    -- {{{ Tags
+    keydoc.group("Tags"),
     awful.key({ modkey,           }, "Left",   						awful.tag.viewprev,
-				"Tag précédent"),
+	"Tag précédent"),
     awful.key({ modkey,           }, "Right",  						awful.tag.viewnext,
-				"Tag suivant"),
+	"Tag suivant"),
     awful.key({ modkey,           }, "Down",     					function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "Up",     						function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "Up",     						function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "Down",     					function () awful.tag.incnmaster(-1)      end),
     -- awful.key({ modkey, "Control" }, "h",     					function () awful.tag.incncol( 1)         end),
     -- awful.key({ modkey, "Control" }, "l",     					function () awful.tag.incncol(-1)         end),
-	-- }}}
+    -- }}}
 
 
-	-- {{{ Clients
-	keydoc.group("Clients"),
+    -- {{{ Clients
+    keydoc.group("Clients"),
     awful.key({ modkey,           }, "Tab",
-																	function ()
-																		awful.client.focus.byidx( 1)
-																		if client.focus then client.focus:raise() end
-																	end,
-				"Client suivant"),
+											function ()
+												awful.client.focus.byidx( 1)
+												if client.focus then client.focus:raise() end
+											end,
+	"Client suivant"),
     awful.key({ modkey, "Shift"   }, "Tab",
-																	function ()
-																		awful.client.focus.byidx(-1)
-																		if client.focus then client.focus:raise() end
-																	end,
-				"Client précédent"),
+											function ()
+												awful.client.focus.byidx(-1)
+												if client.focus then client.focus:raise() end
+											end,
+	"Client précédent"),
 
 
-  -- -- {{{ Screen
-  -- keydoc.group("Écran"),
-  --   awful.key({ modkey, "Control" }, "j",							function () awful.screen.focus_relative( 1) end),
-  --   awful.key({ modkey, "Control" }, "k",							function () awful.screen.focus_relative(-1) end),
-	-- -- }}}
+    -- -- {{{ Screen
+    -- keydoc.group("Écran"),
+    --   awful.key({ modkey, "Control" }, "j",						function () awful.screen.focus_relative( 1) end),
+    --   awful.key({ modkey, "Control" }, "k",						function () awful.screen.focus_relative(-1) end),
+    -- -- }}}
 
 
-  -- {{{ Applications
-	keydoc.group("Applications"),
-    awful.key({ modkey,           }, "t",									function () awful.util.spawn(terminal) end,
-				"Ouvrir un terminal"),
-		awful.key({ modkey,           }, "e",									function () awful.util.spawn(filemanager) end,
-				"Ouvrir le gestionnaire de fichiers"),
-		-- Screenshot
-    awful.key({ 			            }, "Print",	  					function () os.execute("scrot -e 'mv $f ~/Images/screenshots/'") end,
+    -- {{{ Applications
+    keydoc.group("Applications"),
+    awful.key({ modkey,           }, "t",						function () awful.util.spawn(terminal) end,
+	"Ouvrir un terminal"),
+    awful.key({ modkey,           }, "e",						function () awful.util.spawn(filemanager) end,
+	"Ouvrir le gestionnaire de fichiers"),
+    -- Screenshot
+    awful.key({ 	          }, "Print",	  					function () os.execute("scrot -e 'mv $f ~/Images/screenshots/'") end,
         "Copie d'écran"),
-		awful.key({ altkey,           }, "Print",	  					function () os.execute("scrot -u -e 'mv $f ~/Images/screenshots/'") end,
+    awful.key({ altkey,           }, "Print",	  					function () os.execute("scrot -u -e 'mv $f ~/Images/screenshots/'") end,
         "Copie de la fenêtre courante"),
-		-- Conky
-		-- awful.key({										}, "F10",								function() raise_conky() end, function() lower_conky_delayed() end,
-		-- 		"Afficher Conky"),
-	-- }}}
+    -- Conky
+    -- awful.key({		  }, "F10",						function() raise_conky() end, function() lower_conky_delayed() end,
+    -- 	   "Afficher Conky"),
+    -- }}}
 
 
-	-- -- Widgets popups
-	-- keydoc.group("Widgets"),
-  --   awful.key({ altkey,           }, "c",      		function () lain.widgets.calendar:show(7) end,
-	-- 	"Calendrier"),
-  --   awful.key({ altkey,           }, "s",      		function () fswidget.show(7) end,
-	-- 	"Espace disque"),
-  --   awful.key({ altkey,           }, "m",      		function () myweather.show(7) end,
-	-- 	"Météo"),
-  --   awful.key({ altkey,			     }, "b",					function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end,
-  --   	"Widgets (in)visible"),
-	-- -- }}}
+    -- -- Widgets popups
+    -- keydoc.group("Widgets"),
+    -- awful.key({ altkey,           }, "c",      					function () lain.widgets.calendar:show(7) end,
+    --     "Calendrier"),
+    -- awful.key({ altkey,           }, "s", 				     		function () fswidget.show(7) end,
+    --     "Espace disque"),
+    -- awful.key({ altkey,           }, "m",  				    		function () myweather.show(7) end,
+    --     "Météo"),
+    -- awful.key({ altkey,	     }, "b",						function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end,
+    --     "Widgets (in)visible"),
+    -- -- }}}
 
 
-	-- {{{ Awesome
-	keydoc.group("Awesome"),
-    awful.key({ modkey, "Control" }, "r",								awesome.restart,
-				"Recharger configuration"),
-    awful.key({ modkey, "Control" }, "q",								awesome.quit,
-				"Déconnexion"),
+    -- {{{ Awesome
+    keydoc.group("Awesome"),
+    awful.key({ modkey, "Control" }, "r",						awesome.restart,
+	"Recharger configuration"),
+    awful.key({ modkey, "Control" }, "q",						awesome.quit,
+	"Déconnexion"),
     -- Prompt
     awful.key({ modkey,           }, "r",   						function () mypromptbox[mouse.screen]:run() end,
-				"Éxécuter l'application..."),
+	"Éxécuter l'application..."),
     awful.key({ modkey, "Shift"   }, "x",
-																	function ()
-																		awful.prompt.run({ prompt = "Run Lua code: " },
-																		mypromptbox[mouse.screen].widget,
-																		awful.util.eval, nil,
-																		awful.util.getdir("cache") .. "/history_eval")
-																	end,
-				"Éxécuter du code Lua"),
-		awful.key({ modkey,           }, "m",								function () mymainmenu:show({ keygrabber = true }) end,
-				"Afficher menu principal"),
-	-- }}}
+											function ()
+												awful.prompt.run({ prompt = "Run Lua code: " },
+												mypromptbox[mouse.screen].widget,
+												awful.util.eval, nil,
+												awful.util.getdir("cache") .. "/history_eval")
+											end,
+	"Éxécuter du code Lua"),
+    awful.key({ modkey,           }, "m",						function () mymainmenu:show({ keygrabber = true }) end,
+	"Afficher menu principal"),
+    -- }}}
 
 
-	-- {{{ Layouts
+    -- {{{ Layouts
     keydoc.group("Layouts"),
-    awful.key({ modkey,           }, "Escape", 					function () awful.layout.inc(layouts,  1) end,
+    awful.key({ modkey,           }, "Escape", 						function () awful.layout.inc(layouts,  1) end,
         "Layout suivant"),
-    awful.key({ modkey, "Shift"   }, "Escape", 					function () awful.layout.inc(layouts, -1) end,
+    awful.key({ modkey, "Shift"   }, "Escape", 						function () awful.layout.inc(layouts, -1) end,
         "Layout précédent"),
-	-- }}}
+    -- }}}
 
 
-	-- {{{ Multimédia keys
-	keydoc.group("Multimédia"),
-		awful.key({                   }, "XF86AudioRaiseVolume", 		function () volumecfg.up() end),
-		awful.key({                   }, "XF86AudioLowerVolume", 		function () volumecfg.down() end),
-		awful.key({                   }, "XF86AudioMute", 					function () volumecfg.toggle() end),
+    -- {{{ Multimédia keys
+    keydoc.group("Multimédia"),
+    awful.key({              }, "XF86AudioRaiseVolume", 				function () volumecfg.up() end),
+    awful.key({              }, "XF86AudioLowerVolume", 				function () volumecfg.down() end),
+    awful.key({              }, "XF86AudioMute", 					function () volumecfg.toggle() end),
 
-    awful.key({                   }, "XF86AudioPlay",
-																	function ()
-																		awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
-																		mpdwidget.update()
-																	end),
+    awful.key({              }, "XF86AudioPlay",					function ()
+												awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
+												mpdwidget.update()
+											end),
 
-    -- awful.key({ 			            }, "XF86AudioPlay",
-		-- 															function ()
-		-- 																awful.util.spawn_with_shell("mpc stop || ncmpcpp stop || ncmpc stop || pms stop")
-		-- 																mpdwidget.update()
-		-- 															end),
 
-    awful.key({                   }, "XF86AudioPrev",
-																	function ()
-																		awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
-																		mpdwidget.update()
-																	end),
+    awful.key({              }, "XF86AudioPrev",
+											function ()
+												awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
+												mpdwidget.update()
+											end),
 
-    awful.key({                   }, "XF86AudioNext",
-																	function ()
-																		awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
-																		mpdwidget.update()
-																	end),
-	 -- }}}
+    awful.key({               }, "XF86AudioNext",
+											function ()
+												awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
+												mpdwidget.update()
+											end),
+    -- }}}
 
-	 -- {{{ Widgets
+    -- {{{ Widgets
     -- KeyDoc
-    awful.key({                   }, "F11",				keydoc.display,
+    awful.key({                   }, "F11",						keydoc.display,
         "Afficher cette aide"),
-		-- Apprunner
-		awful.key({ modkey,           }, "space",  		function () awful.util.spawn_with_shell("rofi -show run") end,
+    -- Apprunner
+    awful.key({ modkey,           }, "space", 						function () awful.util.spawn_with_shell(apprunner) end,
         "Rofi !!!"),
-		-- Pomodoro
-		awful.key({ modkey          	}, "p",					function () pomodoro:toggle() end),
-		awful.key({ modkey, "Shift" 	}, "p",					function () pomodoro:finish() end)
-	-- }}}
+    -- Pomodoro
+    awful.key({ modkey            }, "p",						function () pomodoro:toggle() end),
+    awful.key({ modkey, "Shift"   }, "p",						function () pomodoro:finish() end)
+    -- }}}
 )
 
 
 clientkeys = awful.util.table.join(
     -- {{{ Clients
-	keydoc.group("Clients"),
-		awful.key({ modkey, "Control" }, "f",      						function (c) c.fullscreen = not c.fullscreen  end,
-				"Plein écran"),
+    keydoc.group("Clients"),
+    awful.key({ modkey, "Control" }, "f",     						function (c) c.fullscreen = not c.fullscreen  end,
+	"Plein écran"),
     awful.key({ altkey,           }, "F4",      					function (c) c:kill()                         end,
-				"Fermer/Quitter"),
+	"Fermer/Quitter"),
     awful.key({ modkey, "Control" }, "space",  						awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", 						function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "Up",      		  		function (c) c.ontop = not c.ontop            end,
-				"Mettre au 1er plan"),
+    awful.key({ modkey,           }, "Up", 		     		  		function (c) c.ontop = not c.ontop            end,
+	"Mettre au 1er plan"),
 
     -- awful.key({ modkey, "Shift"   }, "Home",
-		-- 															function (c)
-		-- 																-- The client currently has the input focus, so it cannot be
-		-- 																-- minimized, since minimized clients can't have the focus.
-		-- 																c.minimized = true
-		-- 															end,
-		--   "Minimiser"),
+    -- 											function (c)
+    -- 											-- The client currently has the input focus, so it cannot be
+    -- 											-- minimized, since minimized clients can't have the focus.
+    -- 												c.minimized = true
+    -- 											end,
+    --   "Minimiser"),
     awful.key({ modkey,           }, "Home",
-																	function (c)
-																		c.maximized_horizontal = not c.maximized_horizontal
-																		c.maximized_vertical   = not c.maximized_vertical
-																	end,
-			  "Maximiser"),
-		-- awful.key({ modkey, "Shift"   }, "t",							awful.titlebar.toggle,
-		--   "Afficher barre de titre"),
+											function (c)
+												c.maximized_horizontal = not c.maximized_horizontal
+												c.maximized_vertical   = not c.maximized_vertical
+											end,
+	"Maximiser"),
+    -- awful.key({ modkey, "Shift"   }, "t",						awful.titlebar.toggle,
+    --     "Afficher barre de titre"),
 
     -- DRAG WINDOW TO WORKSPACE
     awful.key({ modkey, "Shift"   }, "Left",
-																	function (c)
-																		local curidx = awful.tag.getidx()
-																		if curidx == 1 then
-																			awful.client.movetotag(tags[client.focus.screen][#tags[client.focus.screen]])
-																		else
-																			awful.client.movetotag(tags[client.focus.screen][curidx - 1])
-																		end
-																		awful.tag.viewidx(-1)
-																	end,
-				"Déplacer dans le tag précédent"),
+											function (c)
+												local curidx = awful.tag.getidx()
+												if curidx == 1 then
+													awful.client.movetotag(tags[client.focus.screen][#tags[client.focus.screen]])
+												else
+													awful.client.movetotag(tags[client.focus.screen][curidx - 1])
+												end
+												awful.tag.viewidx(-1)
+											end,
+	"Déplacer dans le tag précédent"),
 
     awful.key({ modkey, "Shift"   }, "Right",
-																	function (c)
-																		local curidx = awful.tag.getidx()
-																		if curidx == #tags[client.focus.screen] then
-																			awful.client.movetotag(tags[client.focus.screen][1])
-																		else
-																			awful.client.movetotag(tags[client.focus.screen][curidx + 1])
-																		end
-																		awful.tag.viewidx(1)
-																	end,
-				"Déplacer dans le tag suivant")
+											function (c)
+												local curidx = awful.tag.getidx()
+												if curidx == #tags[client.focus.screen] then
+													awful.client.movetotag(tags[client.focus.screen][1])
+												else
+													awful.client.movetotag(tags[client.focus.screen][curidx + 1])
+												end
+												awful.tag.viewidx(1)
+											end,
+	"Déplacer dans le tag suivant")
 )
 
 -- Bind all key numbers to tags.
