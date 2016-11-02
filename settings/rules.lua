@@ -24,8 +24,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      maximized_vertical   = false,
-                     maximized_horizontal = false,
-                     opacity = transparency } },
+                     maximized_horizontal = false, } },
     -- Set floating apps
     { rule = { class = "vlc" },
       properties = { floating = true } },
@@ -42,7 +41,7 @@ awful.rules.rules = {
     -- Set Terminal to always map on tags number 9 of screen 1.
     { rule_any = { class = { "lxterminal", "Lxterminal" } },
       properties = { tag = tags[1][9] },
-      callback = awful.titlebar.hide  },
+      callback = awful.titlebar.hide },
     -- Set KeePass2 to always be floating.
     { rule_any = { class = { "keepassx", "KeePassX" } },
       properties = { floating = true } },

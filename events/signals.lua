@@ -79,13 +79,19 @@ client.connect_signal("manage", function (c, startup)
     end
 end)
 
-client.connect_signal("focus", function(c)
-                                 c.border_color = beautiful.border_focus
-                                 c.border_width = beautiful.border_focus_width
-                                 c.opacity = 1.0
+client.connect_signal("focus",  function(c)
+                                  c.border_color = beautiful.border_focus
+                                  c.border_width = beautiful.border_focus_width
+                                  c.opacity = 1.0
 end)
-client.connect_signal("unfocus", function(c)
-                                   c.border_color = beautiful.border_normal
-                                   c.opacity = transparency
+client.connect_signal("unfocus",  function(c)
+                                    c.border_color = beautiful.border_normal
+                                    for index, value in ipairs(no_transparent_clients) do
+                                      if value == c.class then
+                                        c.opacity = 1.0
+                                      else
+                                        c.opacity = transparency_level
+                                      end
+                                    end
 end)
 -- }}}

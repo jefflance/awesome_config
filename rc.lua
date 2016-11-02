@@ -15,8 +15,8 @@ local awful				= require("awful")
 awful.rules				= require("awful.rules")
 require("awful.autofocus")
 local wibox				= require("wibox")
-local beautiful				= require("beautiful")
-local naughty   			= require("naughty")
+local beautiful		= require("beautiful")
+local naughty   	= require("naughty")
 local lain				= require("lain")
 -- require("eminent")
 
@@ -25,15 +25,18 @@ local lain				= require("lain")
 -- localisation
 os.setlocale(os.getenv("LANG"))
 
-transparency = 0.5
+-- unfocused clients transparency level
+transparency_level = 0.8
+-- no transparency for this clients
+no_transparent_clients = { "Lxterminal" }
 
---terminal			= "urxvtc" or "xterm"
+--terminal		= "urxvtc" or "xterm"
 terminal			= "lxterminal"
---quaketerm 			= "urxvtc -name quake" or "xterm -name quake"
---quaketerm			= "xterm -name quake"
+--quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
+--quaketerm		= "xterm -name quake"
 editor 				= os.getenv("EDITOR") or "nano"
-editor_cmd 			= terminal .. " -e " .. editor
-user				= os.getenv("USER")
+editor_cmd 		= terminal .. " -e " .. editor
+user				  = os.getenv("USER")
 
 --raise_volume_cmd		= "amixer -D pulse -- sset Master 3%+ unmute"
 --lower_volume_cmd		= "amixer -D pulse -- sset Master 3%- unmute"
@@ -41,11 +44,11 @@ user				= os.getenv("USER")
 
 browser				= "firefox"
 browser2			= "chromium"
-gui_editor			= "leafpad"
+gui_editor		= "leafpad"
 graphics			= "gimp"
-mail				= "thunderbird"
-filemanager 			= "files"
-apprunner  			= "rofi -switchers run,drun,combi -show run"
+mail				  = "thunderbird"
+filemanager 	= "files"
+apprunner  		= "rofi -switchers run,drun,combi -show run"
 
 -- KEYBINDED KEYS
 -- Default modkey.
