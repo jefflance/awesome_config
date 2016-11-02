@@ -47,7 +47,7 @@ volumecfg.down = function ()
        volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " 1%-")
 end
 volumecfg.toggle = function ()
-       volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " toggle")
+       volumecfg.mixercommand(" -- sset " .. volumecfg.channel .. " 0")
 end
 
 volumecfg_widget:buttons(awful.util.table.join(
