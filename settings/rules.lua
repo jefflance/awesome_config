@@ -24,7 +24,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      maximized_vertical   = false,
-                     maximized_horizontal = false } },
+                     maximized_horizontal = false,
+                     opacity = transparency } },
     -- Set floating apps
     { rule = { class = "vlc" },
       properties = { floating = true } },
@@ -51,7 +52,5 @@ awful.rules.rules = {
                       sticky = true,
                       ontop = false,
                       focusable = false } },
-    { rule_any = { class = { "thunar", "Thunar" } },
-      properties = { opacity = 0.2 } },
 }
 -- }}}

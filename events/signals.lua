@@ -86,6 +86,6 @@ client.connect_signal("focus", function(c)
 end)
 client.connect_signal("unfocus", function(c)
                                    c.border_color = beautiful.border_normal
-                                   c.opacity = 0.2
+                                   c.opacity = transparency
 end)
 -- }}}
