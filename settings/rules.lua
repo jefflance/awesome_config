@@ -10,6 +10,7 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
+
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -31,13 +32,13 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 1 of screen 1.
+    -- Set Firefox to always map on tags number 7 of screen 1.
     { rule = { class = "Firefox" },
       properties = { tag = tags[1][7] } },
-    -- Set Thunderbird to always map on tags number 2 of screen 1.
+    -- Set Thunderbird to always map on tags number 8 of screen 1.
     { rule = { class = "Thunderbird" },
       properties = { tag = tags[1][8] } },
-    -- Set URxvt/XTerm to always map on tags number 9 of screen 1.
+    -- Set Terminal to always map on tags number 9 of screen 1.
     { rule_any = { class = { "lxterminal", "Lxterminal" } },
       properties = { tag = tags[1][9] },
       callback = awful.titlebar.hide  },
@@ -50,5 +51,7 @@ awful.rules.rules = {
                       sticky = true,
                       ontop = false,
                       focusable = false } },
+    { rule_any = { class = { "thunar", "Thunar" } },
+      properties = { opacity = 0.2 } },
 }
 -- }}}

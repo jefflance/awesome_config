@@ -25,6 +25,8 @@ local lain				= require("lain")
 -- localisation
 os.setlocale(os.getenv("LANG"))
 
+transparency = 0.5
+
 --terminal			= "urxvtc" or "xterm"
 terminal				= "lxterminal"
 --quaketerm 		= "urxvtc -name quake" or "xterm -name quake"
