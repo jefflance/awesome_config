@@ -1,0 +1,24 @@
+[submodule "lib/lain"]
+	path = lib/lain
+	url = https://github.com/copycat-killer/lain.git
+[submodule "lib/obvious"]
+	path = lib/obvious
+	url = https://github.com/hoelzro/obvious.git
+[submodule "lib/vicious"]
+	path = lib/vicious
+	url = http://git.sysphere.org/vicious
+[submodule "lib/radical"]
+	path = lib/radical
+	url = https://github.com/Elv13/radical.git
+[submodule "lib/tyrannical"]
+	path = lib/tyrannical
+	url = https://github.com/Elv13/tyrannical.git
+[submodule "lib/keychains"]
+	path = lib/keychains
+	url = https://github.com/uzsolt/keychains.git
+[submodule "lib/hints"]
+	path = lib/hints
+	url = https://github.com/guotsuan/hints.git
+[submodule "lib/treetile"]
+	path = lib/treetile
+	url = https://github.com/guotsuan/awesome-treetile.git
