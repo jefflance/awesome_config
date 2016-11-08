@@ -48,7 +48,7 @@ gui_editor		= "leafpad"
 graphics			= "gimp"
 mail				  = "thunderbird"
 filemanager 	= "files"
-apprunner  		= "rofi -switchers run,drun,combi -show run"
+-- apprunner  		= "rofi -switchers run,drun,combi -show run"
 
 -- KEYBINDED KEYS
 -- Default modkey.
