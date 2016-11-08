@@ -143,8 +143,10 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "F11",						keydoc.display,
                 "Afficher cette aide"),
     -- Apprunner
+    -- Run or raise applications with rofi
     -- awful.key({ modkey,           }, "space", 						function () awful.util.spawn_with_shell(apprunner) end,
     --     "Rofi !!!"),
+    -- Run or raise applications with dmenu
     awful.key({ modkey,           }, "space",
         function ()
           local f_reader = io.popen(
@@ -176,7 +178,24 @@ globalkeys = awful.util.table.join(
           end
           awful.util.spawn(command)
     end),
-
+    -- Run or raise applications with dmenu with elevated privileges
+    awful.key({ modkey, "Shift"   }, "space",
+        function ()
+          local f_reader = io.popen(
+                "dmenu_run -b" ..
+                " -p '>'" ..
+                " -dim '0.5'" ..
+                " -q -r" ..
+                " -nb '" .. beautiful.bg_urgent ..
+                "' -nf '" .. beautiful.fg_urgent ..
+                "' -sb '" .. beautiful.bg_normal ..
+                "' -sf '" .. beautiful.fg_yellow ..
+                "' -fn 'Roboto-10' -h '24'")
+          local command = assert(f_reader:read('*a'))
+          f_reader:close()
+          if command == "" then return end
+          awful.util.spawn("gksudo " .. command)
+    end),
 
     -- Pomodoro
     awful.key({ modkey            }, "p",						function () pomodoro:toggle() end),
