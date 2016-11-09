@@ -150,10 +150,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space",
         function ()
           local f_reader = io.popen(
-                "dmenu_run -b" ..
+                "dmenu_path | dmenu -b" ..
                 " -p '>'" ..
                 " -dim '0.5'" ..
-                " -q -r" ..
+                " -r" ..
                 " -nb '" .. beautiful.bg_normal ..
                 "' -nf '" .. beautiful.fg_normal ..
                 "' -sb '" .. beautiful.bg_normal ..
@@ -182,10 +182,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space",
         function ()
           local f_reader = io.popen(
-                "dmenu_run -b" ..
+                "dmenu_path | dmenu -b" ..
                 " -p '>'" ..
                 " -dim '0.5'" ..
-                " -q -r" ..
+                " -r" ..
                 " -nb '" .. beautiful.bg_urgent ..
                 "' -nf '" .. beautiful.fg_urgent ..
                 "' -sb '" .. beautiful.bg_normal ..
