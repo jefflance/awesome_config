@@ -91,7 +91,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
     -- awful.key({ modkey,           }, "r",   						function () mypromptbox[mouse.screen]:run() end,
     --           	"Éxécuter l'application..."),
-    awful.key({ modkey, "Shift"   }, "x",
+    awful.key({ modkey,           }, "x",
 											function ()
 												awful.prompt.run({ prompt = "Run Lua code: " },
 												mypromptbox[mouse.screen].widget,
