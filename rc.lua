@@ -31,24 +31,24 @@ transparency_level = 0.8
 no_transparent_clients = { "Lxterminal" }
 
 --terminal		= "urxvtc" or "xterm"
-terminal			= "lxterminal"
+terminal		= "lxterminal"
 --quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
 --quaketerm		= "xterm -name quake"
-editor 				= os.getenv("EDITOR") or "nano"
+editor 			= os.getenv("EDITOR") or "nano"
 editor_cmd 		= terminal .. " -e " .. editor
-user				  = os.getenv("USER")
+user			= os.getenv("USER")
 
 --raise_volume_cmd		= "amixer -D pulse -- sset Master 3%+ unmute"
 --lower_volume_cmd		= "amixer -D pulse -- sset Master 3%- unmute"
 --mute_volume_cmd		= "amixer -D pulse -- sset Master toggle"
 
-browser				= "firefox"
-browser2			= "chromium"
-gui_editor		= "leafpad"
-graphics			= "gimp"
-mail				  = "thunderbird"
+browser		= "firefox"
+browser2	= "chromium"
+gui_editor	= "leafpad"
+graphics	= "gimp"
+mail	        = "thunderbird"
 filemanager 	= "files"
--- apprunner  		= "rofi -switchers run,drun,combi -show run"
+apprunner  	= "rofi -switchers run,drun,combi -show run"
 
 -- KEYBINDED KEYS
 -- Default modkey.
