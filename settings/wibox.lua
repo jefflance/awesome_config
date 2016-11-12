@@ -135,8 +135,9 @@ mpdwidget = lain.widgets.mpd({
       mpd_notification_preset = {
 	    music_dir = "/mnt/mores/musique",
 	    cover_size = 100,
-            text = string.format("%s [%s] - %s\n%s", mpd_now.artist,
-                   mpd_now.album, mpd_now.date, mpd_now.title)
+	    timeout = 30,
+            text = string.format("%s [%s] - %s\n%s\n%q", mpd_now.artist,
+                   mpd_now.album, mpd_now.date, mpd_now.title, mpd_now.file)
         }
 
         if mpd_now.state == "play" then
