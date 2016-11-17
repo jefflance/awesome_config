@@ -45,11 +45,11 @@ globalkeys = awful.util.table.join(
               	"Client précédent"),
 
 
-    -- -- {{{ Screen
-    -- keydoc.group("Écran"),
-    --   awful.key({ modkey, "Control" }, "j",						function () awful.screen.focus_relative( 1) end),
-    --   awful.key({ modkey, "Control" }, "k",						function () awful.screen.focus_relative(-1) end),
-    -- -- }}}
+    -- {{{ Screen
+    keydoc.group("Écran"),
+    awful.key({ modkey, "Control" }, "j",						function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "k",						function () awful.screen.focus_relative(-1) end),
+    -- }}}
 
 
     -- {{{ Applications
@@ -63,14 +63,28 @@ globalkeys = awful.util.table.join(
                 "Copie d'écran"),
     awful.key({ modkey,           }, "Print",	  		    			function () os.execute("scrot -u -e 'mv $f ~/Images/screenshots/'") end,
                 "Copie de la fenêtre courante"),
+    -- Apprunner
+    -- Run or raise applications with rofi
+    awful.key({ modkey,           }, "space",						function () awful.util.spawn_with_shell(apprunner) end,
+ 		"Rofi !!!"),
     -- Conky
     -- awful.key({		  }, "F10",						function() raise_conky() end, function() lower_conky_delayed() end,
     -- 	   "Afficher Conky"),
     -- }}}
 
 
-    -- -- Widgets popups
-    -- keydoc.group("Widgets"),
+    -- Widgets popups
+    keydoc.group("Widgets"),
+    -- awful.key({ modkey,           }, "F12", 				     		mpdwidget.display,
+    -- 		   "À l'écoute ?"),
+    -- KeyDoc
+    awful.key({ modkey            }, "F11",						keydoc.display,
+		"De l'aide ?" ),
+    -- Pomodoro
+    awful.key({ modkey            }, "p",						function () pomodoro:toggle() end,
+		"Lancer un Pomodoro" ),
+    awful.key({ modkey, "Shift"   }, "p",						function () pomodoro:finish() end,
+		"Mettre en pause le Pomodoro" ),
     -- awful.key({ altkey,           }, "c",      					function () lain.widgets.calendar:show(7) end,
     --     "Calendrier"),
     -- awful.key({ altkey,           }, "s", 				     		function () fswidget.show(7) end,
@@ -79,7 +93,7 @@ globalkeys = awful.util.table.join(
     --     "Météo"),
     -- awful.key({ altkey,	     }, "b",						function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end,
     --     "Widgets (in)visible"),
-    -- -- }}}
+    -- }}}
 
 
     -- {{{ Awesome
@@ -139,17 +153,10 @@ globalkeys = awful.util.table.join(
 												awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
 												mpdwidget.update()
 											end,
-		"Piste suiv." ),
+		"Piste suiv." )
     -- }}}
 
-    -- {{{ Widgets
-    -- KeyDoc
-    awful.key({                   }, "F11",						keydoc.display,
-                "Afficher cette aide" ),
-    -- Apprunner
-    -- Run or raise applications with rofi
-    awful.key({ modkey,           }, "space",						function () awful.util.spawn_with_shell(apprunner) end,
- 		"Rofi !!!"),
+    -- {{{ Autres
     -- Run or raise applications with dmenu
     -- awful.key({ modkey,           }, "space",
     --     function ()
@@ -201,9 +208,6 @@ globalkeys = awful.util.table.join(
     --       awful.util.spawn("gksudo " .. command)
     -- end),
 
-    -- Pomodoro
-    awful.key({ modkey            }, "p",						function () pomodoro:toggle() end),
-    awful.key({ modkey, "Shift"   }, "p",						function () pomodoro:finish() end)
     -- }}}
 )
 
