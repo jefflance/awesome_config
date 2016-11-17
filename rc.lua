@@ -28,7 +28,7 @@ os.setlocale(os.getenv("LANG"))
 -- unfocused clients transparency level
 transparency_level = 0.8
 -- no transparency for this clients
-no_transparent_clients = { "Lxterminal" }
+no_transparent_clients = { "Lxterminal", "vlc" }
 
 --terminal		= "urxvtc" or "xterm"
 terminal		= "lxterminal"
@@ -88,6 +88,7 @@ run_once("compton -b &")
 run_once("nm-applet")
 run_once("clipit")
 run_once("seafile-applet")
+run_once("redshift-gtk")
 
 
 ------------------ GLOBAL ------------------
