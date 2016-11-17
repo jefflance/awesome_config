@@ -131,13 +131,13 @@ memwidget = lain.widgets.mem({
 -- MPD
 mpdicon = wibox.widget.imagebox()
 mpdwidget = lain.widgets.mpd({
+    music_dir = "/mnt/mores/musique",
+    cover_size = 200,
     settings = function()
       mpd_notification_preset = {
-	    music_dir = "/mnt/mores/musique",
-	    cover_size = 100,
-	    timeout = 30,
-            text = string.format("%s [%s] - %s\n%s\n%q", mpd_now.artist,
-                   mpd_now.album, mpd_now.date, mpd_now.title, mpd_now.file)
+	    timeout = 15,
+            text = string.format("%s [%s] - %s\n%s", mpd_now.artist,
+                   mpd_now.album, mpd_now.date, mpd_now.title)
         }
 
         if mpd_now.state == "play" then
@@ -294,22 +294,22 @@ for s = 1, screen.count() do
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
 
-    -- net infos
-    --right_layout:add(netdownicon)
-    --right_layout:add(netdowninfo)
-    --right_layout:add(netupicon)
-    --right_layout:add(netupinfo)
-
     -- volume infos
     right_layout:add(volicon)
     right_layout:add(volumecfg_widget)
+    right_layout:add(spacer1)
+
+    -- net infos
+    right_layout:add(netdownicon)
+    right_layout:add(netdowninfo)
+    right_layout:add(netupicon)
+    right_layout:add(netupinfo)
 
     -- system infos
-    right_layout:add(spacer1)
     right_layout:add(memicon)
     right_layout:add(memwidget)
-    --right_layout:add(cpuicon)
-    --right_layout:add(cpuwidget)
+    right_layout:add(cpuicon)
+    right_layout:add(cpuwidget)
     right_layout:add(fsicon)
     right_layout:add(fswidget)
 
