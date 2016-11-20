@@ -81,6 +81,10 @@ theme.layout_max                    = theme.confdir .. "/icons/max.png"
 theme.layout_fullscreen             = theme.confdir .. "/icons/fullscreen.png"
 theme.layout_magnifier              = theme.confdir .. "/icons/magnifier.png"
 theme.layout_floating               = theme.confdir .. "/icons/floating.png"
+theme.layout_termfair    	    = theme.confdir .. "/icons/termfairw.png"
+theme.layout_cascade     	    = theme.confdir .. "/icons/cascadew.png"
+theme.layout_cascadetile 	    = theme.confdir .. "/icons/cascadetilew.png"
+theme.layout_centerwork  	    = theme.confdir .. "/icons/centerworkw.png"
 
 theme.awesome_icon                  = theme.confdir .. "/icons/awesome.png"
 
