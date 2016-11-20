@@ -120,9 +120,9 @@ globalkeys = awful.util.table.join(
 
     -- {{{ Layouts
     keydoc.group("Layouts"),
-    awful.key({ modkey,           }, "Escape", 						function () awful.layout.inc(layouts,  1) end,
+    awful.key({ modkey,           }, "\\", 						function () awful.layout.inc(layouts,  1) end,
                 "Layout suivant" ),
-    awful.key({ modkey, "Shift"   }, "Escape", 						function () awful.layout.inc(layouts, -1) end,
+    awful.key({ modkey,           }, "/", 						function () awful.layout.inc(layouts, -1) end,
                 "Layout précédent" ),
     -- }}}
 
@@ -133,11 +133,11 @@ globalkeys = awful.util.table.join(
     	        "Aug. le volume" ),
     awful.key({              }, "XF86AudioLowerVolume", 				function () volumecfg.down() end,
     		"Dim. le volume" ),
-    awful.key({              }, "XF86AudioMute", 					      function () volumecfg.toggle() end,
+    awful.key({              }, "XF86AudioMute",	                	        function () volumecfg.toggle() end,
     		"Silence" ),
 
-    awful.key({              }, "XF86AudioPlay",					      function ()
-												awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
+    awful.key({              }, "XF86AudioPlay",					function ()
+											        awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
 												mpdwidget.update()
 											end,
 		"Jouer" ),
