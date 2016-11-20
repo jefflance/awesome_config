@@ -120,9 +120,9 @@ globalkeys = awful.util.table.join(
 
     -- {{{ Layouts
     keydoc.group("Layouts"),
-    awful.key({ modkey,           }, "\\", 						function () awful.layout.inc(layouts,  1) end,
+    awful.key({ modkey,           }, "/", 						function () awful.layout.inc(layouts,  1) end,
                 "Layout suivant" ),
-    awful.key({ modkey,           }, "/", 						function () awful.layout.inc(layouts, -1) end,
+    awful.key({ modkey,           }, "\\", 						function () awful.layout.inc(layouts, -1) end,
                 "Layout précédent" ),
     -- }}}
 
