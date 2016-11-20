@@ -28,7 +28,7 @@ os.setlocale(os.getenv("LANG"))
 -- unfocused clients transparency level
 transparency_level = 0.8
 -- no transparency for this clients
-no_transparent_clients = { "Lxterminal", "vlc" }
+no_transparent_clients = { "Lxterminal", "vlc", "gnome-mplayer" }
 
 --terminal		= "urxvtc" or "xterm"
 terminal		= "lxterminal"
@@ -96,6 +96,7 @@ run_once("redshift-gtk")
 require("events.errors")
 
 -- TAGS (layouts and tags definitions)
+require("settings.layouts")
 require("settings.tags")
 
 -- MENUS (menus and menubar definitions)
