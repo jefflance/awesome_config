@@ -107,11 +107,9 @@ require("settings.wibox")
 
 -- BINDINGS
 -- mouse
-require("bindings.mouse")
+require("settings.mouse")
 -- keyboard
-require("bindings.keys")
--- keyboard
---require("bindings.custom")
+require("settings.keys")
 -- Set keys
 root.keys(globalkeys)
 -- }}}
