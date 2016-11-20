@@ -300,10 +300,10 @@ for s = 1, screen.count() do
     right_layout:add(spacer1)
 
     -- net infos
-    right_layout:add(netdownicon)
-    right_layout:add(netdowninfo)
-    right_layout:add(netupicon)
-    right_layout:add(netupinfo)
+    --right_layout:add(netdownicon)
+    --right_layout:add(netdowninfo)
+    --right_layout:add(netupicon)
+    --right_layout:add(netupinfo)
 
     -- system infos
     right_layout:add(memicon)
