@@ -7,10 +7,12 @@
 		11/05/2014
 --]]
 
+
 local awful	= require("awful")
 --local drop	= require("scratch.drop")
 local keydoc= require("keydoc")
-local lain	= require("lain")
+local lain	= require("lib.lain")
+
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
@@ -26,6 +28,25 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Down",     					function () awful.tag.incnmaster(-1)      end),
     -- awful.key({ modkey, "Control" }, "h",     					function () awful.tag.incncol( 1)         end),
     -- awful.key({ modkey, "Control" }, "l",     					function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, "a",
+                      function ()
+                                awful.prompt.run({ prompt = "New tag name: " },
+                                  mypromptbox[mouse.screen].widget,
+                                  function(new_name)
+                                      if not new_name or #new_name == 0 then
+                                          return
+                                      else
+                                          props = {selected = true}
+                                          if tyrannical.tags_by_name[new_name] then
+                                             props = tyrannical.tags_by_name[new_name]
+                                          end
+                                          t = awful.tag.add(new_name, props)
+                                          awful.tag.viewonly(t)
+                                      end
+                                  end
+                                  )
+                      end),
+    awful.key({ modkey,           }, "d",                 function () awful.tag.delete() end),
     -- }}}
 
 
@@ -54,18 +75,18 @@ globalkeys = awful.util.table.join(
 
     -- {{{ Applications
     keydoc.group("Applications"),
-    awful.key({ modkey,           }, "t",               				function () awful.util.spawn(terminal) end,
+    awful.key({ modkey,           }, "t",               			function () awful.util.spawn(terminal) end,
               	"Ouvrir un terminal"),
-    awful.key({ modkey,           }, "e",               				function () awful.util.spawn(filemanager) end,
+    awful.key({ modkey,           }, "e",               			function () awful.util.spawn(filemanager) end,
               	"Ouvrir le gestionnaire de fichiers"),
     -- Screenshot
-    awful.key({ 	          }, "Print",	  					function () os.execute("scrot -e 'mv $f ~/Images/screenshots/'") end,
+    awful.key({ 	          }, "Print",	  					          function () os.execute("scrot -e 'mv $f ~/Images/screenshots/'") end,
                 "Copie d'écran"),
     awful.key({ modkey,           }, "Print",	  		    			function () os.execute("scrot -u -e 'mv $f ~/Images/screenshots/'") end,
                 "Copie de la fenêtre courante"),
     -- Apprunner
     -- Run or raise applications with rofi
-    awful.key({ modkey,           }, "space",						function () awful.util.spawn_with_shell(apprunner) end,
+    awful.key({ modkey,           }, "space",						      function () awful.util.spawn_with_shell(apprunner) end,
  		"Rofi !!!"),
     -- Conky
     -- awful.key({		  }, "F10",						function() raise_conky() end, function() lower_conky_delayed() end,
@@ -317,3 +338,5 @@ clientbuttons = awful.util.table.join(
     awful.button({ }, 2, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize)
 )
+
+-- }}}

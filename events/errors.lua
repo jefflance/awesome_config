@@ -7,7 +7,9 @@
 		11/05/2014
 --]]
 
+
 local naughty = require("naughty")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

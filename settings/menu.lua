@@ -7,11 +7,11 @@
 	11/05/2014
 --]]
 
+
 local awful   = require("awful")
 awful.menu    = require("awful.menu")
 local menugen = require("menugen")
 beautiful = require("beautiful")
-
 
 
 -- {{{

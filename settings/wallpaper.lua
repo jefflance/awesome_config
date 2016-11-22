@@ -7,8 +7,10 @@
 		11/05/2014
 --]]
 
+
 local gears = require("gears")
 local beautiful = require("beautiful")
+
 
 -- {{{ Wallpaper
 if beautiful.wallpaper then

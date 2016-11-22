@@ -7,6 +7,7 @@
 		11/05/2014
 --]]
 
+
 local awful     = require("awful")
 local table     = table
 local ipairs    = ipairs
@@ -22,11 +23,14 @@ local capi      = {
    client = client
 }
 
+
 module("keydoc")
+
 
 local doc = { }
 local currentgroup = "Misc"
 local orig = awful.key.new
+
 
 -- Replacement for awful.key.new
 local function new(mod, key, press, release, docstring)

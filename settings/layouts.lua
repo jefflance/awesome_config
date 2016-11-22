@@ -1,5 +1,5 @@
 --[[
-	settings/layoutss.lua
+	settings/layouts.lua
 
 		Layouts definition
 
@@ -7,9 +7,12 @@
 		19/11/2016
 --]]
 
-local lain = require("lib.lain")
+
+local lain = require("lain")
 local awful = require("awful")
 
+
+-- {{{ Layouts
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
@@ -18,7 +21,7 @@ layouts =
 --    awful.layout.suit.tile.left,
 --    awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,
-    lain.layout.termfair,
+    lain.layout.centerfair,
 --    awful.layout.suit.fair.horizontal,
 --     awful.layout.suit.spiral,
 --     awful.layout.suit.spiral.dwindle,
@@ -28,10 +31,18 @@ layouts =
 }
 -- }}}
 
+
+-- {{{ Settings
 -- Layouts settings
+
+-- Cascadetile
 lain.layout.cascadetile.cascade_offset_x = 2
 lain.layout.cascadetile.cascade_offset_y = 32
 lain.layout.cascadetile.extra_padding = 5
 lain.layout.cascadetile.nmaster = 5
 lain.layout.cascadetile.ncol = 1
+
+-- Termfair
+lain.layout.centerfair.nmaster = 2
+lain.layout.centerfair.ncol = 1
 -- }}

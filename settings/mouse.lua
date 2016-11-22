@@ -7,7 +7,9 @@
 		11/05/2014
 --]]
 
+
 local awful = require("awful")
+
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(

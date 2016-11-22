@@ -7,8 +7,10 @@
 		11/05/2014
 --]]
 
+
 local awful = require("awful")
 local beautiful = require("beautiful")
+
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -78,6 +80,18 @@ client.connect_signal("manage", function (c, startup)
         awful.titlebar(c):set_widget(layout)
     end
 end)
+-- }}}
+
+
+-- {{{ (un)focus
+-- Set transparency for unfocused but not for thoose
+-- listed in transparencyFor table in rc.lua
+-- transparencyLevel define the level of transparency
+local revNoTransparencyFor = {}
+
+for key, value in ipairs(noTransparencyFor) do
+  revNoTransparencyFor[value] = key
+end
 
 client.connect_signal("focus",  function(c)
                                   c.border_color = beautiful.border_focus
@@ -86,12 +100,17 @@ client.connect_signal("focus",  function(c)
 end)
 client.connect_signal("unfocus",  function(c)
                                     c.border_color = beautiful.border_normal
-                                    for index, value in ipairs(no_transparent_clients) do
-                                      if value == c.class then
-                                        c.opacity = 1.0
-                                      else
-                                        c.opacity = transparency_level
-                                      end
-                                    end
+				    if revNoTransparencyFor[c.class] then
+				      c.opacity = 1.0
+				    else
+				      c.opacity = transparencyLevel
+				    end
+                                    --for index, value in ipairs(no_transparent_clients) do
+                                    --  if value == c.class then
+                                    --    c.opacity = 1.0
+                                    --  else
+                                    --    c.opacity = transparency_level
+                                    --  end
+                                    --end
 end)
 -- }}}
