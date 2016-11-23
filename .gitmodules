@@ -22,3 +22,6 @@
 [submodule "lib/treetile"]
 	path = lib/treetile
 	url = https://github.com/guotsuan/awesome-treetile.git
+[submodule "lib/revelation"]
+	path = lib/revelation
+	url = https://github.com/guotsuan/awesome-revelation
