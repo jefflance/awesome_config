@@ -10,7 +10,7 @@
 
 local awful	= require("awful")
 --local drop	= require("scratch.drop")
-local keydoc= require("keydoc")
+local keydoc 	= require("keydoc")
 local lain	= require("lib.lain")
 
 
@@ -22,6 +22,8 @@ globalkeys = awful.util.table.join(
                 "Tag précédent"),
     awful.key({ modkey,           }, "Right",  						awful.tag.viewnext,
                 "Tag suivant"),
+    awful.key({ modkey,           }, "F12",     					revelation,
+    		"Revelation"),
     awful.key({ modkey,           }, "Down",     					function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "Up",     						function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "Up",     						function () awful.tag.incnmaster( 1)      end),

@@ -15,10 +15,9 @@ local awful				= require("awful")
 awful.rules				= require("awful.rules")
 require("awful.autofocus")
 local wibox				= require("wibox")
-local beautiful				= require("beautiful")
-local naughty   			= require("naughty")
+local beautiful		= require("beautiful")
+local naughty   	= require("naughty")
 local lain				= require("lain")
-local revelation 			= require("revelation")
 -- require("eminent")
 
 
@@ -49,7 +48,7 @@ gui_editor  = "leafpad"
 graphics	  = "gimp"
 mail	      = "thunderbird"
 filemanager = "files"
-apprunner  	= "rofi -switchers run,drun,combi -show run"
+apprunner  	= "rofi -switchers run,combi -show run"
 calc        = "calc"
 
 -- KEYBINDED KEYS
@@ -99,7 +98,7 @@ require("events.errors")
 
 -- TAGS (layouts and tags definitions)
 require("settings.layouts")
-require("settings.tags")
+require("settings.test.tags")
 
 -- MENUS (menus and menubar definitions)
 require("settings.menu")
@@ -117,7 +116,7 @@ root.keys(globalkeys)
 -- }}}
 
 -- RULES
-require("settings.rules")
+--require("settings.test.rules")
 
 -- SIGNALS (events management)
 require("events.signals")
