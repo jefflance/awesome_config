@@ -15,11 +15,11 @@ local awful				= require("awful")
 awful.rules				= require("awful.rules")
 require("awful.autofocus")
 local wibox				= require("wibox")
-local beautiful				= require("beautiful")
-local naughty   			= require("naughty")
+local beautiful		= require("beautiful")
+local naughty   	= require("naughty")
 local lain				= require("lain")
-local revelation 			= require("revelation")
--- require("eminent")
+local revelation 	= require("revelation")
+local treetile    = require("treetile")
 
 
 ------------------ VARIABLES ------------------
@@ -90,6 +90,7 @@ run_once("compton -b &")
 run_once("nm-applet")
 run_once("clipit")
 run_once("seafile-applet")
+run_once("steam")
 --run_once("redshift-gtk")
 
 

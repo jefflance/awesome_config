@@ -11,7 +11,8 @@
 local awful	= require("awful")
 --local drop	= require("scratch.drop")
 local keydoc 	= require("keydoc")
-local lain	= require("lib.lain")
+local lain	= require("lain")
+-- local revelation = require("revelation")
 
 
 -- {{{ Key bindings

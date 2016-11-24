@@ -10,6 +10,7 @@
 
 local lain = require("lain")
 local awful = require("awful")
+local treetile = require("treetile")
 
 
 -- {{{ Layouts
@@ -17,7 +18,7 @@ local awful = require("awful")
 layouts =
 {
     awful.layout.suit.floating,
-    lain.layout.cascadetile,
+    treetile,
 --    awful.layout.suit.tile.left,
 --    awful.layout.suit.tile.bottom,
 --    awful.layout.suit.tile.top,

@@ -9,12 +9,13 @@
 
 
 local awful = require("awful")
+local lain = require("lain")
 local tyrannical = require("lib.tyrannical")
 
 
 tyrannical.tags = {
     {
-        name = "",
+        name        = "",
         init        = true,
         exclusive   = true,
         screen      = 1,
@@ -37,7 +38,7 @@ tyrannical.tags = {
         }
     } ,
     {
-        name = "",
+        name        = "",
         init        = true,
         exclusive   = true,
         screen      = 1,
@@ -48,15 +49,37 @@ tyrannical.tags = {
         }
     } ,
 		{
-				name        = "",                   -- Call the tag "Term"
+				name        = "",                   -- "Term" logo
 				init        = true,                   -- Load the tag on startup
 				exclusive   = true,                   -- Refuse any other type of clients (by classes)
 				screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
-				layout      = awful.layout.suit.tile, -- Use the tile layout
+				layout      = lain.layout.centerfair, -- Use the tile layout
 				instance    = {"dev", "ops"},         -- Accept the following instances. This takes precedence over 'class'
 				class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
 						"lxterminal"  , "Lxterminal"  , "xterm"   , "urxvt"       , "aterm" ,
             "URxvt"       , "XTerm"       , "konsole" , "terminator"  ,"gnome-terminal"
+				}
+		} ,
+    {
+				name        = "",                   -- "Steam" logo
+				init        = true,                   -- Load the tag on startup
+				exclusive   = true,                   -- Refuse any other type of clients (by classes)
+				screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
+				layout      = awful.layout.suit.max, -- Use the tile layout
+				instance    = {"steam"},         -- Accept the following instances. This takes precedence over 'class'
+				class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+						"Steam"
+				}
+		} ,
+    {
+				name        = "",                   -- "Game" logo
+				init        = true,                   -- Load the tag on startup
+				exclusive   = true,                   -- Refuse any other type of clients (by classes)
+				screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
+				layout      = awful.layout.suit.max, -- Use the tile layout
+				instance    = {"game"},         -- Accept the following instances. This takes precedence over 'class'
+				class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
+						"EoCApp"  , "witcher2"
 				}
 		}
 }
