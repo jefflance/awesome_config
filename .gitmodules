@@ -22,3 +22,6 @@
 [submodule "lib/revelation"]
 	path = lib/revelation
 	url = https://github.com/guotsuan/awesome-revelation
+[submodule "lib/treesome"]
+	path = lib/treesome
+	url = https://github.com/RobSis/treesome.git
