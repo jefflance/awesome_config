@@ -278,9 +278,11 @@ for s = 1, screen.count() do
     left_layout:add(mylauncher)
 
     -- tags
+    left_layout:add(spacer1)
     left_layout:add(mytaglist[s])
 
     -- run command
+    left_layout:add(spacer1)
     left_layout:add(mypromptbox[s])
 
     -- mpd infos
