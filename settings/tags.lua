@@ -18,9 +18,9 @@ tags = {
 --     name = { "www", "mail", "edit", 4, 5, 6, 7, 8, 9 },
 --     name = { "1:www", "2:mail", 3, 4, 5, 6, 7, 8, "9:term" },
 --     name = { "1:", "2:", "3:", "4:", "5:", "6:", "7:www", "8:mail", "9:term" },
-    name = { "1:", "2:", "3:", "4:", "5:", "6:", " ", " ", "" },
+    name = { "1:", "2:", "3:", "4:", "5:", "6:", " ", " ", "", "" },
     layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1],
-               layouts[1], layouts[4], layouts[4], layouts[3]
+               layouts[1], layouts[5], layouts[5], layouts[4], layouts[6]
              }
 }
 

@@ -19,7 +19,7 @@ local beautiful		= require("beautiful")
 local naughty   	= require("naughty")
 local lain				= require("lain")
 local revelation 	= require("revelation")
-local treetile    = require("treetile")
+local treetile    = require("treesome")
 
 
 ------------------ VARIABLES ------------------

@@ -1,7 +1,7 @@
 --[[
 	settings/tags.lua
 
-		Layout and tags definition
+		Tags definition
 
 		Jeff LANCE <jeff.lance@mala.fr>
 		20/11/2016
@@ -15,12 +15,21 @@ local tyrannical = require("lib.tyrannical")
 
 tyrannical.tags = {
     {
+        name        = "1:",
+        init        = false,
+        exclusive   = false,
+        fallback    = true,
+        volatile    = true,
+        screen      = 1,
+        layout      = awful.layout.suit.floating,
+    } ,
+    {
         name        = "",
         init        = true,
         exclusive   = true,
         screen      = 1,
         layout      = awful.layout.suit.tile,
-        exec_once   = {filemanager}, --When the tag is accessed for the first time, execute this command
+        exec_once   = {"Thunar"}, --When the tag is accessed for the first time, execute this command
         class  = {
             "Thunar"  , "Konqueror" , "Dolphin" , "pcmanfm" , "Nautilus"
         }
@@ -54,7 +63,7 @@ tyrannical.tags = {
 				exclusive   = true,                   -- Refuse any other type of clients (by classes)
 				screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
 				layout      = lain.layout.centerfair, -- Use the tile layout
-				instance    = {"dev", "ops"},         -- Accept the following instances. This takes precedence over 'class'
+				-- instance    = {"dev", "ops"},         -- Accept the following instances. This takes precedence over 'class'
 				class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
 						"lxterminal"  , "Lxterminal"  , "xterm"   , "urxvt"       , "aterm" ,
             "URxvt"       , "XTerm"       , "konsole" , "terminator"  ,"gnome-terminal"
@@ -77,7 +86,7 @@ tyrannical.tags = {
 				exclusive   = true,                   -- Refuse any other type of clients (by classes)
 				screen      = {1,2},                  -- Create this tag on screen 1 and screen 2
 				layout      = awful.layout.suit.max, -- Use the tile layout
-				instance    = {"game"},         -- Accept the following instances. This takes precedence over 'class'
+				-- instance    = {"game"},         -- Accept the following instances. This takes precedence over 'class'
 				class       = { --Accept the following classes, refuse everything else (because of "exclusive=true")
 						"EoCApp"  , "witcher2"
 				}
@@ -120,3 +129,4 @@ tyrannical.properties.centered = {
 
 tyrannical.settings.block_children_focus_stealing = true --Block popups ()
 tyrannical.settings.group_children = true --Force popups/dialogs to have the same tags as the parent client
+tyrannical.settings.default_layout = awful.layout.suit.floating

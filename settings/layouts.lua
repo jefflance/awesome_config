@@ -10,7 +10,6 @@
 
 local lain = require("lain")
 local awful = require("awful")
-local treetile = require("treetile")
 
 
 -- {{{ Layouts
@@ -18,17 +17,17 @@ local treetile = require("treetile")
 layouts =
 {
     awful.layout.suit.floating,
-    treetile,
---    awful.layout.suit.tile.left,
---    awful.layout.suit.tile.bottom,
---    awful.layout.suit.tile.top,
+    treesome,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     lain.layout.centerfair,
---    awful.layout.suit.fair.horizontal,
---     awful.layout.suit.spiral,
---     awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
---     awful.layout.suit.magnifier
+    awful.layout.suit.magnifier
 }
 -- }}}
 
