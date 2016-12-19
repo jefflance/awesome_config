@@ -29,13 +29,17 @@ Debian_menu["Debian_Applications_Éditeurs"] = {
 }
 Debian_menu["Debian_Applications_Émulateurs_de_terminaux"] = {
 	{"LXTerminal","/usr/bin/lxterminal","/usr/share/pixmaps/lxterminal.xpm"},
+	{"Rxvt-Unicode","rxvt-unicode","/usr/share/pixmaps/urxvt.xpm"},
 	{"XTerm","xterm","/usr/share/pixmaps/xterm-color_32x32.xpm"},
 	{"X-Terminal as root (GKsu)","/usr/bin/gksu -u root /usr/bin/x-terminal-emulator","/usr/share/pixmaps/gksu-debian.xpm"},
 	{"XTerm (Unicode)","uxterm","/usr/share/pixmaps/xterm-color_32x32.xpm"},
 	{"Xvt","/usr/bin/xvt -ls"},
 }
 Debian_menu["Debian_Applications_Gestion_de_fichiers"] = {
+	{"Baobab","/usr/bin/baobab","/usr/share/pixmaps/baobab.xpm"},
+	{"catfish","catfish"},
 	{"gprename","/usr/bin/gprename","/usr/share/pixmaps/gprename/gprename_debian_menu_icon.xpm"},
+	{"Thunar","/usr/bin/thunar"},
 	{"Unison 2.48.3 (GTK)","/usr/bin/unison-2.48.3-gtk","/usr/share/pixmaps/unison-gtk.xpm"},
 }
 Debian_menu["Debian_Applications_Interpréteurs_de_commandes"] = {
@@ -60,19 +64,29 @@ Debian_menu["Debian_Applications_Réseau_Communication"] = {
 	{"Telnet", "x-terminal-emulator -e ".."/usr/bin/telnet.netkit"},
 	{"Xbiff","xbiff"},
 }
+Debian_menu["Debian_Applications_Réseau_Navigateurs_web"] = {
+	{"w3m", "x-terminal-emulator -e ".."/usr/bin/w3m /usr/share/doc/w3m/MANUAL.html"},
+}
 Debian_menu["Debian_Applications_Réseau_Transfert_de_fichiers"] = {
+	{"gFTP","/usr/bin/gftp-gtk","/usr/share/pixmaps/gftp.xpm"},
 	{"Transmission BitTorrent Client (GTK)","/usr/bin/transmission-gtk","/usr/share/pixmaps/transmission.xpm"},
 }
 Debian_menu["Debian_Applications_Réseau"] = {
 	{ "Communication", Debian_menu["Debian_Applications_Réseau_Communication"] },
+	{ "Navigateurs web", Debian_menu["Debian_Applications_Réseau_Navigateurs_web"] },
 	{ "Transfert de fichiers", Debian_menu["Debian_Applications_Réseau_Transfert_de_fichiers"] },
+}
+Debian_menu["Debian_Applications_Sciences_Électronique"] = {
+	{"Fritzing","/usr/bin/Fritzing","/usr/share/pixmaps/fritzing_icon.xpm"},
 }
 Debian_menu["Debian_Applications_Sciences_Mathématiques"] = {
 	{"Bc", "x-terminal-emulator -e ".."/usr/bin/bc"},
 	{"galculator","/usr/bin/galculator","/usr/share/pixmaps/galculator.xpm"},
+	{"TIemu","/usr/bin/tiemu"},
 	{"Xcalc","xcalc"},
 }
 Debian_menu["Debian_Applications_Sciences"] = {
+	{ "Électronique", Debian_menu["Debian_Applications_Sciences_Électronique"] },
 	{ "Mathématiques", Debian_menu["Debian_Applications_Sciences_Mathématiques"] },
 }
 Debian_menu["Debian_Applications_Son_et_musique"] = {
@@ -113,6 +127,7 @@ Debian_menu["Debian_Applications_Système_Sécurité"] = {
 	{"light-locker-settings","light-locker-settings"},
 }
 Debian_menu["Debian_Applications_Système_Surveillance"] = {
+	{"Conky", "x-terminal-emulator -e ".."/usr/bin/conky"},
 	{"Pstree", "x-terminal-emulator -e ".."/usr/bin/pstree.x11","/usr/share/pixmaps/pstree16.xpm"},
 	{"Top", "x-terminal-emulator -e ".."/usr/bin/top"},
 	{"Xconsole","xconsole -file /dev/xconsole"},
@@ -149,6 +164,10 @@ Debian_menu["Debian_Applications"] = {
 	{ "Système", Debian_menu["Debian_Applications_Système"] },
 	{ "Vidéo", Debian_menu["Debian_Applications_Vidéo"] },
 }
+Debian_menu["Debian_CrossOver"] = {
+	{"CrossOver","/opt/cxoffice/bin/crossover","/opt/cxoffice/share/icons/32x32/crossover.png"},
+	{"Uninstall CrossOver Linux","/opt/cxoffice/bin/cxuninstall","/opt/cxoffice/share/icons/32x32/cxuninstall.png"},
+}
 Debian_menu["Debian_Écran_Veille"] = {
 	{"Activate ScreenSaver (Next)","/usr/bin/xscreensaver-command -next"},
 	{"Activate ScreenSaver (Previous)","/usr/bin/xscreensaver-command -prev"},
@@ -171,6 +190,7 @@ Debian_menu["Debian_Jeux_Action"] = {
 }
 Debian_menu["Debian_Jeux_Jouets"] = {
 	{"Oclock","oclock"},
+	{"Redshift","redshift-gtk"},
 	{"Xclock (analog)","xclock -analog"},
 	{"Xclock (digital)","xclock -digital -update 1"},
 	{"Xeyes","xeyes"},
@@ -183,6 +203,7 @@ Debian_menu["Debian_Jeux"] = {
 Debian_menu["Debian"] = {
 	{ "Aide", Debian_menu["Debian_Aide"] },
 	{ "Applications", Debian_menu["Debian_Applications"] },
+	{ "CrossOver", Debian_menu["Debian_CrossOver"] },
 	{ "Écran", Debian_menu["Debian_Écran"] },
 	{ "Jeux", Debian_menu["Debian_Jeux"] },
 }

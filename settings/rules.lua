@@ -46,6 +46,11 @@ awful.rules.rules = {
     -- Set KeePass2 to always be floating.
     { rule_any = { class = { "keepassx", "KeePassX" } },
       properties = { floating = true } },
+    -- Set Steam to always map on tags number 10 of screen 1.
+    { rule_any = { class = { "Steam", "steam", "EoCApp", "witcher2" },
+    		   name = { "Steam" } },
+      properties = { tag = tags[1][10] },
+      callback = awful.titlebar.hide },
     -- Set Conky
     { rule = { class = "Conky" },
       properties = {  floating = true,

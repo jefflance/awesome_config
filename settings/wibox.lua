@@ -149,8 +149,8 @@ mpdwidget = lain.widgets.mpd({
             artist = "mpd "
             title  = "paused "
         else
-            artist = ""
-            title  = ""
+            artist = "mpd "
+            title  = "stopped "
             mpdicon:set_image(nil)
         end
         widget:set_markup(markup("#e54c62", artist) .. markup("#e54c62", title))
@@ -161,13 +161,13 @@ mpdwidget = lain.widgets.mpd({
 pomowibox = awful.wibox({ position = "top", screen = 1, height=4})
 pomowibox.visible = false
 pomodoro = awmodoro.new({
-  minutes 			= 25,
-  do_notify 			= true,
+  minutes 		= 25,
+  do_notify 		= true,
   active_bg_color 	= '#313131',
   paused_bg_color 	= '#7746D7',
-  fg_color			= {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"},{0.5, "#88A175"},{1, "#FF5656"}}},
-  width 				= pomowibox.width,
-  height 				= pomowibox.height,
+  fg_color		= {type = "linear", from = {0,0}, to = {pomowibox.width, 0}, stops = {{0, "#AECF96"},{0.5, "#88A175"},{1, "#FF5656"}}},
+  width 		= pomowibox.width,
+  height 		= pomowibox.height,
 
   begin_callback = function()
     for s = 1, screen.count() do

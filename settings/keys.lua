@@ -109,6 +109,8 @@ globalkeys = awful.util.table.join(
 		"Lancer un Pomodoro" ),
     awful.key({ modkey, "Shift"   }, "p",						function () pomodoro:finish() end,
 		"Mettre en pause le Pomodoro" ),
+    awful.key({ modkey, "Alt"   }, "p",							function () pomodoro:reset() end,
+		"Remettre à zéro le Pomodoro" ),
     -- awful.key({ altkey,           }, "c",      					function () lain.widgets.calendar:show(7) end,
     --     "Calendrier"),
     -- awful.key({ altkey,           }, "s", 				     		function () fswidget.show(7) end,
@@ -293,7 +295,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 10 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,

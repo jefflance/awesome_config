@@ -29,7 +29,7 @@ os.setlocale(os.getenv("LANG"))
 -- unfocused clients transparency level
 transparencyLevel = 0.8
 -- no transparency for this clients
-noTransparencyFor = { "Lxterminal", "vlc", "gnome-mplayer" }
+noTransparencyFor = { "Lxterminal", "vlc", "gnome-mplayer", "Steam" }
 
 --terminal		= "urxvtc" or "xterm"
 terminal		= "lxterminal"
@@ -100,6 +100,7 @@ require("events.errors")
 
 -- TAGS (layouts and tags definitions)
 require("settings.layouts")
+--require("settings.test.tags")
 require("settings.tags")
 
 -- MENUS (menus and menubar definitions)
