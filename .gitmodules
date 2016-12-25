@@ -1,9 +1,11 @@
 [submodule "lib/lain"]
 	path = lib/lain
 	url = https://github.com/copycat-killer/lain.git
+	branch = master
 [submodule "lib/obvious"]
 	path = lib/obvious
 	url = https://github.com/hoelzro/obvious.git
+	branch = master
 [submodule "lib/vicious"]
 	path = lib/vicious
 	url = http://git.sysphere.org/vicious
@@ -11,18 +13,25 @@
 [submodule "lib/radical"]
 	path = lib/radical
 	url = https://github.com/Elv13/radical.git
+	branch = master
 [submodule "lib/tyrannical"]
 	path = lib/tyrannical
 	url = https://github.com/Elv13/tyrannical.git
+	branch = master
 [submodule "lib/keychains"]
 	path = lib/keychains
 	url = https://github.com/uzsolt/keychains.git
+	branch = master
 [submodule "lib/hints"]
 	path = lib/hints
 	url = https://github.com/guotsuan/hints.git
+	branch = master
 [submodule "lib/revelation"]
 	path = lib/revelation
 	url = https://github.com/guotsuan/awesome-revelation
+	branch = master
 [submodule "lib/treesome"]
 	path = lib/treesome
 	url = https://github.com/RobSis/treesome.git
+	branch = master
+
