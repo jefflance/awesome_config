@@ -30,3 +30,7 @@
 	path = lib/treesome
 	url = https://github.com/RobSis/treesome.git
 	branch = master
+[submodule "lib/vicious"]
+	path = lib/vicious
+	url = https://github.com/Mic92/vicious.git
+	branch = master
