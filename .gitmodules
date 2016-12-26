@@ -30,8 +30,3 @@
 	path = lib/treesome
 	url = https://github.com/RobSis/treesome.git
 	branch = master
-
-[submodule "lib/vicious"]
-	path = lib/vicious
-	url = http://git.sysphere.org/vicious
-	branch = master
