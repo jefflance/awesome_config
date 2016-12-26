@@ -6,10 +6,6 @@
 	path = lib/obvious
 	url = https://github.com/hoelzro/obvious.git
 	branch = master
-[submodule "lib/vicious"]
-	path = lib/vicious
-	url = http://git.sysphere.org/vicious
-	branch = master
 [submodule "lib/radical"]
 	path = lib/radical
 	url = https://github.com/Elv13/radical.git
