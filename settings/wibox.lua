@@ -23,7 +23,7 @@ clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M "))
 
 -- Calendar
-lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
+--lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Weather
 weathericon = wibox.widget.imagebox(beautiful.widget_weather)
