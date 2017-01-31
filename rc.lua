@@ -90,7 +90,7 @@ run_once("compton -b &")
 run_once("nm-applet")
 run_once("clipit")
 run_once("seafile-applet")
-run_once("steam")
+--run_once("steam")
 --run_once("redshift-gtk")
 
 
