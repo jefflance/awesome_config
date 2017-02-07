@@ -32,12 +32,12 @@ transparencyLevel = 0.8
 noTransparencyFor = { "Lxterminal", "vlc", "gnome-mplayer", "Steam" }
 
 --terminal		= "urxvtc" or "xterm"
-terminal		= "lxterminal"
+terminal		  = "lxterminal"
 --quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
 --quaketerm		= "xterm -name quake"
-editor 			= os.getenv("EDITOR") or "nano"
+editor 			  = os.getenv("EDITOR") or "nano"
 editor_cmd 		= terminal .. " -e " .. editor
-user			= os.getenv("USER")
+user			    = os.getenv("USER")
 
 --raise_volume_cmd		= "amixer -D pulse -- sset Master 3%+ unmute"
 --lower_volume_cmd		= "amixer -D pulse -- sset Master 3%- unmute"
