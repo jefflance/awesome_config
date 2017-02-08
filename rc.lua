@@ -84,7 +84,10 @@ require("plugins.keydoc")
 
 
 ------------------ AUTOSTART APPLICATIONS ------------------
-run_once("thunar --daemon")
+--run_once("thunar --daemon")
+--run_once("pcmanfm -d &")
+run_once("spacefm -d &")
+run_once("xbindkeys &")
 run_once("nitrogen \\--restore")
 run_once("compton -b &")
 run_once("nm-applet")

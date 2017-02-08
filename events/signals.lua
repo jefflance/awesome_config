@@ -100,11 +100,11 @@ client.connect_signal("focus",  function(c)
 end)
 client.connect_signal("unfocus",  function(c)
                                     c.border_color = beautiful.border_normal
-				    if revNoTransparencyFor[c.class] then
-				      c.opacity = 1.0
-				    else
-				      c.opacity = transparencyLevel
-				    end
+                        				    if revNoTransparencyFor[c.class] then
+                        				      c.opacity = 1.0
+                        				    else
+                        				      c.opacity = transparencyLevel
+                        				    end
                                     --for index, value in ipairs(no_transparent_clients) do
                                     --  if value == c.class then
                                     --    c.opacity = 1.0
