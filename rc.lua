@@ -94,7 +94,7 @@ run_once("nm-applet")
 run_once("clipit")
 run_once("seafile-applet")
 --run_once("steam")
---run_once("redshift-gtk")
+run_once("redshift-gtk")
 
 
 ------------------ GLOBAL ------------------
