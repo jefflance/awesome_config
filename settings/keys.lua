@@ -102,10 +102,10 @@ globalkeys = awful.util.table.join(
     -- awful.key({ modkey,           }, "F12", 				     		mpdwidget.display,
     -- 		   "À l'écoute ?"),
     -- KeyDoc
-    awful.key({ modkey            }, "F11",						keydoc.display,
+    awful.key({ modkey,           }, "F11",						keydoc.display,
 		"De l'aide ?" ),
     -- Pomodoro
-    awful.key({ modkey            }, "p",						function () pomodoro:toggle() end,
+    awful.key({ modkey,           }, "p",						function () pomodoro:toggle() end,
 		"Lancer un Pomodoro" ),
     awful.key({ modkey, "Shift"   }, "p",						function () pomodoro:finish() end,
 		"Mettre en pause le Pomodoro" ),
@@ -139,7 +139,7 @@ globalkeys = awful.util.table.join(
 												awful.util.getdir("cache") .. "/history_eval")
 											end,
          	"Éxécuter du code Lua" ),
-    awful.key({ modkey,           }, "m",						function () mymainmenu:show({ keygrabber = true }) end,
+    awful.key({ modkey,           }, "m",						function () mymainmenu:show(mouse.coords {x = 1275, y = 720}) end,
               	"Afficher menu principal" ),
     -- }}}
 
