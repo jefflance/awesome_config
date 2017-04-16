@@ -18,7 +18,8 @@ local wibox				= require("wibox")
 local beautiful		= require("beautiful")
 local naughty   	= require("naughty")
 local lain				= require("lain")
--- require("eminent")
+local revelation 	= require("revelation")
+local treetile    = require("treesome")
 
 
 ------------------ VARIABLES ------------------
@@ -28,15 +29,15 @@ os.setlocale(os.getenv("LANG"))
 -- unfocused clients transparency level
 transparencyLevel = 0.8
 -- no transparency for this clients
-noTransparencyFor = { "Lxterminal", "vlc", "gnome-mplayer" }
+noTransparencyFor = { "Lxterminal", "vlc", "gnome-mplayer", "Steam" }
 
 --terminal		= "urxvtc" or "xterm"
-terminal		= "lxterminal"
+terminal		  = "lxterminal"
 --quaketerm 	= "urxvtc -name quake" or "xterm -name quake"
 --quaketerm		= "xterm -name quake"
-editor 			= os.getenv("EDITOR") or "nano"
+editor 			  = os.getenv("EDITOR") or "nano"
 editor_cmd 		= terminal .. " -e " .. editor
-user			= os.getenv("USER")
+user			    = os.getenv("USER")
 
 --raise_volume_cmd		= "amixer -D pulse -- sset Master 3%+ unmute"
 --lower_volume_cmd		= "amixer -D pulse -- sset Master 3%- unmute"
@@ -48,7 +49,7 @@ gui_editor  = "leafpad"
 graphics	  = "gimp"
 mail	      = "thunderbird"
 filemanager = "files"
-apprunner  	= "rofi -switchers run,combi -show run"
+apprunner  	= "rofi -switchers run,drun,combi -show run"
 calc        = "calc"
 
 -- KEYBINDED KEYS
@@ -83,13 +84,17 @@ require("plugins.keydoc")
 
 
 ------------------ AUTOSTART APPLICATIONS ------------------
-run_once("thunar --daemon")
+--run_once("thunar --daemon")
+--run_once("pcmanfm -d &")
+run_once("spacefm -d &")
+run_once("xbindkeys &")
 run_once("nitrogen \\--restore")
 run_once("compton -b &")
 run_once("nm-applet")
 run_once("clipit")
 run_once("seafile-applet")
---run_once("redshift-gtk")
+--run_once("steam")
+run_once("redshift-gtk")
 
 
 ------------------ GLOBAL ------------------
@@ -98,7 +103,8 @@ require("events.errors")
 
 -- TAGS (layouts and tags definitions)
 require("settings.layouts")
-require("settings.test.tags")
+--require("settings.test.tags")
+require("settings.tags")
 
 -- MENUS (menus and menubar definitions)
 require("settings.menu")
@@ -116,7 +122,7 @@ root.keys(globalkeys)
 -- }}}
 
 -- RULES
---require("settings.test.rules")
+require("settings.rules")
 
 -- SIGNALS (events management)
 require("events.signals")
